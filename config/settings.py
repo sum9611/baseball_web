@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import yaml
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -76,10 +76,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# db정보 가져오기
+with open('yamls/sql_info.yaml') as f:
+
+    info = yaml.load(f, Loader=yaml.FullLoader)
+
+host = info['MARIADB']['IP']
+user = info['MARIADB']['USER']
+passwd=info['MARIADB']['PASSWD']
+db = info['MARIADB']['DB']
+port = info['MARIADB']['PORT']
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', # mysqlclient librarly 설치
+        'NAME': db,
+        'USER': user,
+        'PASSWORD': passwd, # mariaDB 설치 시 입력한 root 비밀번호 입력
+        'HOST': host,
+        'PORT': port
     }
 }
 
