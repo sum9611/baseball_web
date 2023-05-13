@@ -10,3 +10,7 @@ pip install requirements.txt
 
 # DB 설정 동기화 
 python manage.py makemigrations
+python manage.py migrate
+
+# 서버 실행 
+python manage.py runserver
