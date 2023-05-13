@@ -1,8 +1,0 @@
-MARIADB:
-  IP : '175.211.227.185'
-  # IP : '127.0.0.1'
-  USER : 'sy'
-  PASSWD : '1030'
-  DB : 'baseball'
-  PORT : 3307
-
