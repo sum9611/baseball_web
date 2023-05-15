@@ -10,10 +10,7 @@
     
     <div>
         <table>
-            {% for i in posts %}
-            <h3>{{i}}</h3> <h3>{{i}}</h3>                                                      
-            {% endfor %}
-            
+            {{posts| safe}}
         </table>
 
     </div>
