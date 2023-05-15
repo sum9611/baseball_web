@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import test
+from .models import WeeklyBattingInfo
 import yaml
 import pandas as pd
 import pymysql
@@ -36,7 +36,7 @@ def index(request):
     #      and TPA >= RTPA
     # '''
 
-    
+
     cur.execute(sql)
 
     result = cur.fetchall()
@@ -82,3 +82,15 @@ def index2(request):
         'batting': batting_list,
     }
     return render(request, 'baseballs/index2.html', context)
+
+
+
+def index3(request):
+
+    batting = WeeklyBattingInfo.objects.all()
+    print(batting)
+    context = {
+        'batting': batting,
+
+    }
+    return render(request, 'baseballs/index3.html', context)

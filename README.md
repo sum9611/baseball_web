@@ -13,6 +13,11 @@ url = http://127.0.0.1:8000/baseballs/
 ## 현재 데이터는 23년도 14주차만 가져오게 되어있음 만약 전체 데이터를 가지고 오고싶다면 
 ## views.py 34번 줄 주석 해제하고 사용하면 됨 위에 "sql = " 주석처리해야함 
 
+3. 원래 DB에 있던 테이블들 baseballs/models.py에 전부 선언해두었음 
+명령어 "python manage.py inspectdb > 'baseballs/models.py' --database 'default'" 사용 
+이제 기존에 있던 테이블들이 model에 선언되어서 쿼리셋형태로 가는것같음 
+확인 해보면될듯 ~ 
+
 ```
 
 
