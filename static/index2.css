@@ -1,0 +1,9 @@
+.index2__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.index2__content--info {
+    display: flex;
+    flex-direction: row;
+}

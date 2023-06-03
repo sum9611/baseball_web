@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <div>
-        <table>
-            {% comment %} 사용되는 컬럼들 'week', 'player_name', 'player_birth', 'team', 'TPA', 'RTPA', 'AB', 'R',
-            'H', 'HR', 'RBI', 'BB', 'HBP', 'SO', 'GO', 'FO', 'PIT', 'GDP', 'LOB',
-            'AVG', 'game_count' {% endcomment %}
-            [{% for info in batting %}
-            {{info}}
-            {% endfor %}]
-            
-        </table>
+{% extends 'base.html' %}
 
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'index2' %}">
+{% endblock style %}
+    
+{% block content %}
+<div>
+        
+    {% comment %} 사용되는 컬럼들 'week', 'player_name', 'player_birth', 'team', 'TPA', 'RTPA', 'AB', 'R',
+    'H', 'HR', 'RBI', 'BB', 'HBP', 'SO', 'GO', 'FO', 'PIT', 'GDP', 'LOB',
+    'AVG', 'game_count' {% endcomment %}
+    <div class="index2__content">
+        <table>
+            {% for info in batting %}
+                {% for key, value in info.items %}
+                    {% if forloop.first %}
+                    <th>{{ key }}</th>
+                    {% endif %}
+
+                    <td>{{ value }}<td>
+                {% endfor %}
+            {% endfor %}
+        </table>
     </div>
     
-</body>
-</html>
+        
+    
+
+</div>
+{% endblock content %}
+
+    
