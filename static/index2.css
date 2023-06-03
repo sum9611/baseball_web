@@ -1,6 +1,19 @@
+table {
+    text-align: center;
+}
+
+table > th {
+    text-align: center;
+}
+
+table > tr {
+    text-align: center;
+}
+
 .index2__content {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .index2__content--info {
