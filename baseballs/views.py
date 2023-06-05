@@ -77,8 +77,10 @@ def index2(request):
             else:    
                 batting_dic[col[j]] = i[1][j]
         batting_list.append(batting_dic)
-
+    print(batting_list[0].values())
+    print(type(batting_list[0].values()))
     context = {
+        'col' : col,
         'batting': batting_list,
     }
     return render(request, 'baseballs/index2.html', context)

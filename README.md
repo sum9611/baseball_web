@@ -31,10 +31,17 @@ python -m venv venv
 
 # 가상환경 접속 
 ## 디렉토리 이동 필요
+# windows 환경
 source venv/Scripts/activate
+
+# ubuntu 환경
+source venv/bin/activate
 
 # 모듈설치 
 pip install -r requirements.txt
+
+## mysqlclient 에러발생시 
+# sudo apt-get install libmysqlclient-dev 먼저 진행 
 
 # DB 설정 동기화 
 python manage.py makemigrations
